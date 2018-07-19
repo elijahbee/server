@@ -129,7 +129,8 @@ class kReachManager implements kObjectChangedEventConsumer, kObjectCreatedEventC
 
 	private function handleErrorTask(EntryVendorTask $entryVendorTask)
 	{
-		ReachProfilePeer::updateUsedCredit($entryVendorTask->getReachProfileId(), -$entryVendorTask->getPrice());
+		if($entryVendorTask->shouldRefund())
+			ReachProfilePeer::updateUsedCredit($entryVendorTask->getReachProfileId(), -$entryVendorTask->getPrice());
 	}
 
 	private function handleEntryDurationChanged(entry $entry)

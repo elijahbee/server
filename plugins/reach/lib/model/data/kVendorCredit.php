@@ -183,4 +183,9 @@ class kVendorCredit
 		}
 		return true;
 	}
+	
+	public function shouldRefund($jobQueueTime)
+	{
+		return true;
+	}
 }

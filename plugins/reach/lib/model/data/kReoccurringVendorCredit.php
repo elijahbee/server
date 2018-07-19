@@ -156,4 +156,9 @@ class kReoccurringVendorCredit extends kTimeRangeVendorCredit
 	{
 		return $this->periodEndDate;
 	}
+	
+	public function shouldRefund($jobQueueTime)
+	{
+		return ($jobQueueTime > $this->periodStartDate && $jobQueueTime < $this->periodEndDate);
+	}
 }

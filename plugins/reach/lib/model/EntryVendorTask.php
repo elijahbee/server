@@ -222,4 +222,15 @@ class EntryVendorTask extends BaseEntryVendorTask implements IRelatedObject, IIn
 		$this->indexToSearchIndex();
 	}
 	
+	public function shouldRefund()
+	{
+		$credit = $this->getReachProfile()->getCredit();
+		if(!$credit || !$this->getQueueTime())
+			return false;
+		
+		return $credit->shouldRefund($this->getQueueTime());
+			
+		
+	}
+	
 } // EntryVendorTask
