@@ -60,6 +60,9 @@ class KalturaUserEntryFilter extends KalturaUserEntryBaseFilter
 	 */
 	public function getListResponse(KalturaFilterPager $pager, KalturaDetachedResponseProfile $responseProfile = null)
 	{
+		if($responseProfile)
+			$responseProfile->shouldSkip = true;
+
 		$response = new KalturaUserEntryListResponse();
 		if ( in_array(kCurrentContext::getCurrentSessionType(), array(kSessionBase::SESSION_TYPE_NONE,kSessionBase::SESSION_TYPE_WIDGET)) )
 		{

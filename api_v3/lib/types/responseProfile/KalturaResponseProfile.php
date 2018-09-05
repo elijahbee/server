@@ -62,6 +62,8 @@ class KalturaResponseProfile extends KalturaDetachedResponseProfile implements I
 	
 	public function __construct(ResponseProfile $responseProfile = null)
 	{
+		parent::__construct();
+
 		if($responseProfile)
 		{
 			$this->fromObject($responseProfile);

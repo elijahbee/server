@@ -43,6 +43,17 @@ class KalturaDetachedResponseProfile extends KalturaBaseResponseProfile
 	 * @var KalturaResponseProfileMappingArray
 	 */
 	public $mappings;
+
+	/**
+	 * @var bool
+	 */
+	public $shouldSkip = null;
+
+
+	public function __construct()
+	{
+		$this->shouldSkip = false;
+	}
 	
 	private static $map_between_objects = array(
 		'name', 

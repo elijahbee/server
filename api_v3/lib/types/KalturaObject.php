@@ -358,7 +358,7 @@ abstract class KalturaObject implements IApiObject
 			return;
 		}
 	
-		if($srcObj instanceof IRelatedObject && $responseProfile && $responseProfile->relatedProfiles)
+		if($srcObj instanceof IRelatedObject && $responseProfile && $responseProfile->relatedProfiles && !$responseProfile->shouldSkip)
 		{
 			$responseProfile->validateNestedObjects();
 
